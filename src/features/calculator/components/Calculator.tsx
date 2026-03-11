@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import { Clock, Save, Info, TrendingUp, Coffee, Zap, CheckCircle2 } from 'lucide-react';
 import { useStore } from '../../../shared/store';
 import { calculateHourlyRate, formatTime, formatCurrency } from '../../../shared/utils';
@@ -188,9 +189,9 @@ export default function Calculator() {
               {formatCurrency(calculateHourlyRate(profile), profile.currencyCode)}/h
             </strong>
             {' '}·{' '}
-            <a href="/settings" className="text-indigo-400 hover:text-indigo-600 underline underline-offset-2">
+            <Link href="/settings" className="text-indigo-400 hover:text-indigo-600 underline underline-offset-2">
               Modifier
-            </a>
+            </Link>
           </span>
         </div>
       </div>
@@ -305,7 +306,7 @@ export default function Calculator() {
             </button>
             {!canSave && (
               <p className="text-center text-xs text-amber-600">
-                <a href="/pricing" className="underline font-semibold">Passer à Pro</a> pour un historique illimité.
+                <Link href="/pricing" className="underline font-semibold">Passer à Pro</Link> pour un historique illimité.
               </p>
             )}
           </div>

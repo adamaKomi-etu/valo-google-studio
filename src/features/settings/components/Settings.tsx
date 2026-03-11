@@ -1,6 +1,6 @@
 "use client";
 import { useState, FormEvent } from 'react';
-import { User, Save, CheckCircle2, Clock, Euro } from 'lucide-react';
+import { User, Save, CheckCircle2, Clock } from 'lucide-react';
 import { useStore } from '../../../shared/store';
 import { calculateHourlyRate, formatCurrency } from '../../../shared/utils';
 import { clsx } from 'clsx';
@@ -16,6 +16,10 @@ const CURRENCIES = [
   { code: 'CHF', label: 'Franc CH', symbol: 'Fr' },
   { code: 'GBP', label: 'Livre', symbol: '£' },
 ];
+
+function getCurrencySymbol(code: string): string {
+  return CURRENCIES.find((c) => c.code === code)?.symbol ?? code;
+}
 
 export default function Settings() {
   const { profile, updateProfile } = useStore();
@@ -78,8 +82,8 @@ export default function Settings() {
               min="0"
               step="50"
             />
-            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-sm flex items-center space-x-1">
-              <Euro size={14} />
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 font-semibold text-sm">
+              {getCurrencySymbol(profile.currencyCode)}
             </div>
           </div>
         </div>
