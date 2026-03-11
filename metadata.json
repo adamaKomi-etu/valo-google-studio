@@ -1,0 +1,5 @@
+{
+  "name": "VALO",
+  "description": "Convertis le prix d'un achat en temps de travail réel pour prendre des décisions de dépense plus rationnelles.",
+  "requestFramePermissions": []
+}
